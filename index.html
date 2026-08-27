@@ -448,6 +448,49 @@
   #email-modal { opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
   #email-modal.open { opacity: 1; pointer-events: all; }
 
+  /* ── Sticky Nav ── */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.3s ease, backdrop-filter 0.3s ease;
+  }
+  .nav.scrolled {
+    background: rgba(8,8,8,0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-brand {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+  }
+  .nav-links a {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: #fff; }
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+  }
+
   /* ── Fade in on scroll ── */
   .reveal {
     opacity: 0;
@@ -461,6 +504,16 @@
 </style>
 </head>
 <body>
+<nav class="nav" id="navbar">
+  <span class="nav-brand">cinemoto999</span>
+  <div class="nav-links">
+    <a href="#analytics" onclick="event.preventDefault();document.getElementById('analytics').scrollIntoView({behavior:'smooth'})">Analytics</a>
+    <a href="#collabs" onclick="event.preventDefault();document.getElementById('collabs').scrollIntoView({behavior:'smooth'})">Collabs</a>
+    <a href="#partnerships" onclick="event.preventDefault();document.getElementById('partnerships').scrollIntoView({behavior:'smooth'})">Partnerships</a>
+    <a href="#contact" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</a>
+  </div>
+</nav>
+
 <!-- Hero (full-bleed, outside .page) -->
 <header class="hero">
   <div class="hero-inner">
@@ -509,7 +562,7 @@
   </div>
 
   <!-- Analytics -->
-  <section>
+  <section id="analytics">
     <p class="section-label reveal">Analytics — Last Updated: August 27, 2026</p>
     <div class="analytics-grid reveal">
       <div class="analytics-card">
@@ -548,7 +601,7 @@
   </section>
 
 <!-- Featured Collabs -->
-  <section>
+  <section id="collabs">
     <p class="section-label reveal">Featured Collabs</p>
     <div class="collab-scroll reveal">
       <div class="collab-item">
@@ -641,7 +694,7 @@
   </section>
 
   <!-- Partnership Options -->
-  <section>
+  <section id="partnerships">
     <p class="section-label reveal">Partnership Opportunities</p>
     <div class="deliverables reveal">
       <div class="deliverable">
@@ -717,6 +770,11 @@
 
 </div>
 <script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(el => {
       el.target.classList.toggle('visible', el.isIntersecting);

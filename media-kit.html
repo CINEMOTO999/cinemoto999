@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>cinemoto999 — Media Kit</title>
+<link rel="stylesheet" href="https://fonts.cdnfonts.com/css/alte-haas-grotesk">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #080808;
+    --surface: #111111;
+    --border: #1e1e1e;
+    --text: #e8e8e8;
+    --muted: #666;
+    --accent: #ffffff;
+    --tag-bg: #1a1a1a;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Alte Haas Grotesk', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ── Layout ── */
+  .page { max-width: 860px; margin: 0 auto; padding: 0 24px 80px; }
+
+  /* ── Hero ── */
+  .hero {
+    background:
+      linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(8,8,8,1) 100%),
+      url('hero-bg.jpg') center/cover no-repeat;
+    padding: 120px 0 40px;
+  }
+  .hero-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .hero-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 20px;
+  }
+  .hero-name {
+    font-size: clamp(42px, 8vw, 72px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .hero-handle {
+    font-size: 16px;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 28px;
+    letter-spacing: 0.02em;
+  }
+  .hero-bio {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    max-width: 600px;
+    line-height: 1.7;
+    margin: 20px 0 14px;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: stretch;
+    margin-bottom: 28px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .hero-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 22px;
+    color: #fff;
+    transition: background 0.2s;
+  }
+  .hero-email:hover { background: rgba(255,255,255,0.07); }
+  .hero-email-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    white-space: nowrap;
+  }
+  .hero-email-addr {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: #fff;
+    white-space: nowrap;
+  }
+  .hero-copy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 16px;
+    min-width: 48px;
+    background: rgba(255,255,255,0.08);
+    border: none;
+    border-left: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.55);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+    font-family: inherit;
+  }
+  .hero-copy:hover { background: rgba(255,255,255,0.15); color: #fff; }
+  .hero-tagline {
+    font-size: clamp(14px, 2.5vw, 17px);
+    color: rgba(255,255,255,0.4);
+    max-width: 540px;
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  /* ── Stats ── */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin: 24px 0;
+    overflow: hidden;
+  }
+  .stat {
+    background: var(--surface);
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .stat-number {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-platform {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: #444;
+  }
+
+  /* ── Analytics ── */
+  .analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .analytics-card {
+    background: var(--surface);
+    padding: 24px 20px;
+    text-align: center;
+  }
+  .analytics-number {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .analytics-label {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+  @media (max-width: 600px) {
+    .analytics-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ── Section ── */
+  section { padding: 52px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+
+  /* ── Bio ── */
+  .bio-text {
+    font-size: 17px;
+    line-height: 1.75;
+    color: #bbb;
+    max-width: 680px;
+  }
+
+  /* ── Brands ── */
+  .brands-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .brand-chip {
+    background: var(--tag-bg);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #ccc;
+  }
+
+  /* ── Content pillars ── */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .pillar {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px;
+  }
+  .pillar-icon {
+    font-size: 20px;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .pillar-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .pillar-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ── Featured Collabs ── */
+  .collab-scroll {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .collab-scroll::-webkit-scrollbar { display: none; }
+  .collab-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 0 0 220px;
+  }
+  .collab-embed-wrap {
+    position: relative;
+    width: 220px;
+    height: 391px; /* 9:16 */
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .collab-embed-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .collab-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .collab-brand {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  /* ── Deliverables ── */
+  .deliverables { display: flex; flex-direction: column; gap: 1px; }
+  .deliverable {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--surface);
+    padding: 16px 20px;
+    border: 1px solid var(--border);
+    gap: 16px;
+  }
+  .deliverable:first-child { border-radius: 4px 4px 0 0; }
+  .deliverable:last-child { border-radius: 0 0 4px 4px; }
+  .deliverable-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .deliverable-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .deliverable-rate {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    white-space: nowrap;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 4px 12px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Audience ── */
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  .audience-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px;
+  }
+  .audience-pct {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .audience-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  /* ── Contact ── */
+  .contact-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .contact-copy h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .contact-copy p {
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .contact-btn {
+    display: inline-block;
+    background: #fff;
+    color: #000;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .contact-btn:hover { background: #e0e0e0; }
+
+  /* ── Footer ── */
+  .footer {
+    padding: 40px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-brand {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #333;
+  }
+  .footer-links {
+    display: flex;
+    gap: 20px;
+  }
+  .footer-links a {
+    font-size: 12px;
+    color: #444;
+    letter-spacing: 0.04em;
+  }
+  .footer-links a:hover { color: #888; }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .contact-block { flex-direction: column; text-align: center; }
+  }
+
+  /* ── Email modal ── */
+  #email-modal { opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
+  #email-modal.open { opacity: 1; pointer-events: all; }
+
+  /* ── Fade in on scroll ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+<!-- Hero (full-bleed, outside .page) -->
+<header class="hero">
+  <div class="hero-inner">
+    <p class="hero-label">Media Kit · 2026</p>
+    <h1 class="hero-name">Casey Turner</h1>
+    <p class="hero-handle">@cinemoto999</p>
+    <p class="bio-text hero-bio">Casey Turner is a Utah-based cinematic motorcycle filmmaker and video editing educator. Under the cinemoto999 brand, Casey produces high-production motorcycle films and teaches creators how to achieve a cinematic look using DaVinci Resolve — from color grading and custom LUT packs to transitions and full editing workflows.</p>
+    <div class="hero-cta">
+      <a class="hero-email" href="mailto:turnervizualz@gmail.com">
+        <span class="hero-email-label">Work with me &rarr;</span>
+        <span class="hero-email-addr">turnervizualz@gmail.com</span>
+      </a>
+      <button class="hero-copy" onclick="var b=this; navigator.clipboard.writeText('turnervizualz@gmail.com').then(()=>{ b.innerHTML='&#10003;'; setTimeout(()=>{ b.innerHTML='<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'15\' height=\'15\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><rect x=\'9\' y=\'9\' width=\'13\' height=\'13\' rx=\'2\'/><path d=\'M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1\'/></svg>'; },2000); })" title="Copy email">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- Stats -->
+  <div class="stats reveal">
+    <div class="stat">
+      <div class="stat-platform">Instagram</div>
+      <div class="stat-number"><!-- IG_FOLLOWERS -->38.6K</div>
+      <div class="stat-label">Followers</div>
+    </div>
+    <div class="stat">
+      <div class="stat-platform">TikTok</div>
+      <div class="stat-number"><!-- TT_FOLLOWERS -->47.5K</div>
+      <div class="stat-label">Followers</div>
+    </div>
+    <div class="stat">
+      <div class="stat-platform">Instagram</div>
+      <div class="stat-number"><!-- IG_ENG -->12.85%</div>
+      <div class="stat-label">Engagement Rate</div>
+    </div>
+    <div class="stat">
+      <div class="stat-platform">TikTok</div>
+      <div class="stat-number"><!-- TT_ENG -->—</div>
+      <div class="stat-label">Engagement Rate</div>
+    </div>
+  </div>
+
+  <!-- Analytics -->
+  <section>
+    <p class="section-label reveal">Analytics — Last Updated: August 27, 2026</p>
+    <div class="analytics-grid reveal">
+      <div class="analytics-card">
+        <div class="analytics-number">950K</div>
+        <div class="analytics-label">Total Views</div>
+      </div>
+      <div class="analytics-card">
+        <div class="analytics-number">460K</div>
+        <div class="analytics-label">Accounts Reached</div>
+      </div>
+      <div class="analytics-card">
+        <div class="analytics-number">71.4K</div>
+        <div class="analytics-label">Accounts Engaged</div>
+      </div>
+      <div class="analytics-card">
+        <div class="analytics-number">19.6K</div>
+        <div class="analytics-label">Saves</div>
+      </div>
+      <div class="analytics-card">
+        <div class="analytics-number">113K</div>
+        <div class="analytics-label">Interactions</div>
+      </div>
+      <div class="analytics-card">
+        <div class="analytics-number">7.6K</div>
+        <div class="analytics-label">Avg Views / Reel</div>
+      </div>
+      <div class="analytics-card">
+        <div class="analytics-number">5.3K</div>
+        <div class="analytics-label">Avg Reach / Post</div>
+      </div>
+      <div class="analytics-card">
+        <div class="analytics-number">8.6K</div>
+        <div class="analytics-label">Profile Visits</div>
+      </div>
+    </div>
+  </section>
+
+<!-- Featured Collabs -->
+  <section>
+    <p class="section-label reveal">Featured Collabs</p>
+    <div class="collab-scroll reveal">
+      <div class="collab-item">
+        <div class="collab-meta"><span class="collab-brand">Insta360</span></div>
+        <div class="collab-embed-wrap">
+          <iframe src="https://www.instagram.com/reel/DPRcvGZkYNz/embed/" loading="lazy" scrolling="no" allowtransparency="true"></iframe>
+        </div>
+      </div>
+      <div class="collab-item">
+        <div class="collab-meta"><span class="collab-brand">DJI</span></div>
+        <div class="collab-embed-wrap">
+          <iframe src="https://www.instagram.com/reel/DRM-XI3kXJ0/embed/" loading="lazy" scrolling="no" allowtransparency="true"></iframe>
+        </div>
+      </div>
+      <div class="collab-item">
+        <div class="collab-meta"><span class="collab-brand">KF Concept</span></div>
+        <div class="collab-embed-wrap">
+          <iframe src="https://www.instagram.com/reel/DXrRneOERkL/embed/" loading="lazy" scrolling="no" allowtransparency="true"></iframe>
+        </div>
+      </div>
+      <div class="collab-item">
+        <div class="collab-meta"><span class="collab-brand">Cardo Systems</span></div>
+        <div class="collab-embed-wrap">
+          <iframe src="https://www.instagram.com/reel/DZUwDbDRGp7/embed/" loading="lazy" scrolling="no" allowtransparency="true"></iframe>
+        </div>
+      </div>
+      <div class="collab-item">
+        <div class="collab-meta"><span class="collab-brand">SmallRig</span></div>
+        <div class="collab-embed-wrap">
+          <iframe src="https://www.instagram.com/reel/DNoV1V0S7tQ/embed/" loading="lazy" scrolling="no" allowtransparency="true"></iframe>
+        </div>
+      </div>
+      <div class="collab-item">
+        <div class="collab-meta"><span class="collab-brand">Sirui</span></div>
+        <div class="collab-embed-wrap">
+          <iframe src="https://www.instagram.com/reel/DJzZDTByEJ9/embed/" loading="lazy" scrolling="no" allowtransparency="true"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Pillars -->
+  <section>
+    <p class="section-label reveal">Content</p>
+    <div class="pillars reveal">
+      <div class="pillar">
+        <span class="pillar-icon">🎬</span>
+        <div class="pillar-title">Cinematic Motorcycle Films</div>
+        <div class="pillar-desc">High-production short films featuring bikes, landscapes, and motion</div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon">🎨</span>
+        <div class="pillar-title">Color Grading Tutorials</div>
+        <div class="pillar-desc">DaVinci Resolve workflows, LUTs, and grade breakdowns</div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon">⚙️</span>
+        <div class="pillar-title">Gear Reviews</div>
+        <div class="pillar-desc">Cameras, mounts, stabilizers, and accessories tested in the field</div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon">📦</span>
+        <div class="pillar-title">Editing Asset Drops</div>
+        <div class="pillar-desc">LUT packs, transitions, and presets for the creator community</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Audience -->
+  <section>
+    <p class="section-label reveal">Audience</p>
+    <div class="audience-grid reveal">
+      <div class="audience-card">
+        <div class="audience-pct">18–34</div>
+        <div class="audience-desc">Core age range across all platforms</div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-pct">US</div>
+        <div class="audience-desc">Primary audience geography</div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-pct">Riders</div>
+        <div class="audience-desc">Motorcycle enthusiasts & weekend riders</div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-pct">Creators</div>
+        <div class="audience-desc">Video editors, filmmakers & content creators</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partnership Options -->
+  <section>
+    <p class="section-label reveal">Partnership Opportunities</p>
+    <div class="deliverables reveal">
+      <div class="deliverable">
+        <div>
+          <div class="deliverable-name">Multi-Platform Bundle</div>
+          <div class="deliverable-sub">Instagram + TikTok + YouTube Shorts coordinated campaign</div>
+        </div>
+        <a class="deliverable-rate" href="#contact" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">By Inquiry</a>
+      </div>
+      <div class="deliverable">
+        <div>
+          <div class="deliverable-name">Instagram Reel</div>
+          <div class="deliverable-sub">Short-form cinematic feature or product showcase</div>
+        </div>
+        <a class="deliverable-rate" href="#contact" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">By Inquiry</a>
+      </div>
+      <div class="deliverable">
+        <div>
+          <div class="deliverable-name">TikTok Video</div>
+          <div class="deliverable-sub">Product integration or tutorial feature</div>
+        </div>
+        <a class="deliverable-rate" href="#contact" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">By Inquiry</a>
+      </div>
+      <div class="deliverable">
+        <div>
+          <div class="deliverable-name">Dedicated YouTube Video</div>
+          <div class="deliverable-sub">Full integration or standalone sponsored film</div>
+        </div>
+        <a class="deliverable-rate" href="#contact" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">By Inquiry</a>
+      </div>
+      <div class="deliverable">
+        <div>
+          <div class="deliverable-name">YouTube Integration</div>
+          <div class="deliverable-sub">60–90 sec sponsored segment within existing video</div>
+        </div>
+        <a class="deliverable-rate" href="#contact" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">By Inquiry</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="contact-block reveal">
+      <div class="contact-copy">
+        <h3>Let's work together.</h3>
+        <p>Reach out to discuss availability, rates, and custom packages.</p>
+      </div>
+      <button class="contact-btn" onclick="document.getElementById('email-modal').classList.add('open')">Get in Touch</button>
+    </div>
+  </section>
+
+  <!-- Email modal -->
+  <div id="email-modal" onclick="if(event.target===this)this.classList.remove('open')" style="display:flex;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:1000;align-items:center;justify-content:center;">
+    <div style="background:#111;border:1px solid #222;border-radius:6px;padding:36px 40px;max-width:420px;width:90%;text-align:center;">
+      <p style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#555;margin-bottom:12px;">Contact</p>
+      <p style="font-size:20px;font-weight:600;color:#fff;margin-bottom:24px;">turnervizualz@gmail.com</p>
+      <div style="display:flex;justify-content:center;">
+        <button onclick="navigator.clipboard.writeText('turnervizualz@gmail.com').then(()=>{this.textContent='Copied!';this.style.background='#444';this.style.color='#999';setTimeout(()=>{this.textContent='Copy Email';this.style.background='#fff';this.style.color='#000';},2000)})" style="background:#fff;color:#000;border:none;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:12px 28px;border-radius:3px;cursor:pointer;font-family:inherit;transition:background 0.2s,color 0.2s;">Copy Email</button>
+      </div>
+      <button onclick="document.getElementById('email-modal').classList.remove('open')" style="margin-top:20px;background:none;border:none;color:#444;font-size:12px;cursor:pointer;font-family:inherit;">Close</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <span class="footer-brand">cinemoto999</span>
+    <div class="footer-links">
+      <a href="https://www.youtube.com/@cinemoto999" target="_blank">YouTube</a>
+      <a href="https://www.instagram.com/cinemoto999" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@cinemoto999" target="_blank">TikTok</a>
+    </div>
+  </footer>
+
+</div>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('visible');
+        observer.unobserve(el.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

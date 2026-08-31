@@ -36,7 +36,8 @@
   .hero {
     position: relative;
     overflow: hidden;
-    padding: 120px 0 40px;
+    height: 88vh;
+    min-height: 520px;
   }
   .hero-video {
     position: absolute;
@@ -49,7 +50,13 @@
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(8,8,8,1) 100%);
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.15) 0%,
+      rgba(0,0,0,0) 35%,
+      rgba(8,8,8,0.7) 75%,
+      rgba(8,8,8,1) 100%
+    );
     z-index: 1;
   }
   .hero-inner {
@@ -57,41 +64,45 @@
     z-index: 2;
     max-width: 860px;
     margin: 0 auto;
-    padding: 0 24px;
-  }
-  .hero-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 20px;
+    padding: 0 24px 44px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
   .hero-name {
-    font-size: clamp(42px, 8vw, 72px);
+    font-size: clamp(38px, 7vw, 64px);
     font-weight: 700;
     letter-spacing: -0.03em;
     line-height: 1;
-    color: var(--accent);
-    margin-bottom: 8px;
+    color: #fff;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.6);
+    margin: 0;
+  }
+  /* ── Page intro (handle + bio + CTA below video) ── */
+  .page-intro {
+    padding: 40px 0 8px;
   }
   .hero-handle {
-    font-size: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
     color: rgba(255,255,255,0.45);
-    margin-bottom: 28px;
-    letter-spacing: 0.02em;
+    margin-top: 10px;
+    margin-bottom: 0;
   }
   .hero-bio {
     font-size: 15px;
     color: rgba(255,255,255,0.65);
     max-width: 600px;
-    line-height: 1.7;
-    margin: 20px 0 14px;
+    line-height: 1.75;
+    margin: 0 0 24px;
   }
   .hero-cta {
     display: inline-flex;
     align-items: stretch;
-    margin-bottom: 28px;
+    margin-bottom: 0;
     border: 1px solid rgba(255,255,255,0.3);
     border-radius: 4px;
     overflow: hidden;
@@ -458,13 +469,14 @@
   @media (max-width: 600px) {
     .stats { grid-template-columns: repeat(2, 1fr); }
     .contact-block { flex-direction: column; text-align: center; }
-    .hero { padding: 100px 0 60px; }
-    .hero-inner { padding: 0 20px; }
-    .hero-name { font-size: clamp(36px, 10vw, 56px); }
+    .hero { height: 70vh; min-height: 400px; }
+    .hero-inner { padding: 0 20px 32px; }
+    .hero-name { font-size: clamp(32px, 10vw, 52px); }
     .hero-bio { font-size: 14px; }
     .hero-cta { flex-wrap: wrap; width: 100%; }
     .hero-email { flex: 1; min-width: 0; }
     .hero-email-addr { font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .page-intro { padding: 28px 0 0; }
     .page { padding: 0 16px 60px; }
     .analytics-grid { grid-template-columns: repeat(2, 1fr); }
     .pillars { grid-template-columns: repeat(2, 1fr); }
@@ -521,9 +533,7 @@
 
   /* ── Photo stills ── */
   .stills {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 2px;
+    display: block;
     height: 460px;
     border-radius: 4px;
     overflow: hidden;
@@ -572,9 +582,15 @@
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-inner">
-    <p class="hero-label">Media Kit · 2026</p>
     <h1 class="hero-name">Casey Turner</h1>
-    <p class="hero-handle">@cinemoto999</p>
+    <p class="hero-handle">@cinemoto999 &nbsp;·&nbsp; Media Kit 2026</p>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- Intro -->
+  <div class="page-intro reveal">
     <p class="bio-text hero-bio">Casey Turner is a Utah-based cinematic motorcycle filmmaker and video editing educator. Under the cinemoto999 brand, Casey produces high-production motorcycle films and teaches creators how to achieve a cinematic look using DaVinci Resolve — from color grading and custom LUT packs to transitions and full editing workflows.</p>
     <div class="hero-cta">
       <a class="hero-email" href="mailto:turnervizualz@gmail.com">
@@ -588,9 +604,6 @@
       </button>
     </div>
   </div>
-</header>
-
-<div class="page">
 
   <!-- Stats -->
   <div class="stats reveal">
@@ -619,7 +632,6 @@
   <!-- Stills -->
   <div class="stills reveal">
     <img class="still-img" src="still-garage.jpg" alt="Motorcycle in studio" loading="lazy">
-    <img class="still-img" src="still-helmet.jpg" alt="Casey Turner" loading="lazy" style="object-position: top center;">
   </div>
 
   <!-- Analytics -->

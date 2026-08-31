@@ -36,7 +36,7 @@
   .hero {
     position: relative;
     overflow: hidden;
-    height: 88vh;
+    height: 100vh;
     min-height: 520px;
   }
   .hero-video {
@@ -64,7 +64,7 @@
     z-index: 2;
     max-width: 860px;
     margin: 0 auto;
-    padding: 0 24px 44px;
+    padding: 0 24px 6px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -77,11 +77,11 @@
     line-height: 1;
     color: #fff;
     text-shadow: 0 2px 24px rgba(0,0,0,0.6);
-    margin: 0;
+    margin: 0 0 6px;
   }
   /* ── Page intro (handle + bio + CTA below video) ── */
   .page-intro {
-    padding: 40px 0 8px;
+    padding: 48px 0 8px;
   }
   .hero-handle {
     font-size: 12px;
@@ -89,8 +89,16 @@
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: rgba(255,255,255,0.45);
-    margin-top: 10px;
-    margin-bottom: 0;
+    margin: 0;
+  }
+  .hero-avatar {
+    width: 320px;
+    height: 320px;
+    border-radius: 12px;
+    object-fit: cover;
+    object-position: center 34%;
+    display: block;
+    margin-bottom: 48px;
   }
   .hero-bio {
     font-size: 15px;
@@ -531,25 +539,32 @@
     .nav-links { display: none; }
   }
 
-  /* ── Photo stills ── */
-  .stills {
-    display: block;
-    height: 460px;
-    border-radius: 4px;
-    overflow: hidden;
-    margin: 24px 0;
+  /* ── Parallax background ── */
+  .parallax-bg {
+    position: relative;
+    background-image: url('still-garage.jpg');
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center 50%;
+    margin: 40px -24px;
+    will-change: background-position;
   }
-  .still-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
+  .parallax-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(8,8,8,0.52);
+    z-index: 0;
+  }
+  .parallax-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 24px;
   }
   @media (max-width: 600px) {
-    .stills { grid-template-columns: 1fr; height: auto; }
-    .stills .still-img { height: 260px; }
-    .stills .still-img:last-child { height: 340px; }
+
   }
 
   /* ── Fade in on scroll ── */
@@ -577,7 +592,7 @@
 
 <!-- Hero (full-bleed, outside .page) -->
 <header class="hero">
-  <video class="hero-video" autoplay muted loop playsinline preload="auto">
+  <video class="hero-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
     <source src="hero-banner.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
@@ -591,6 +606,7 @@
 
   <!-- Intro -->
   <div class="page-intro reveal">
+    <img class="hero-avatar" src="still-helmet.jpg" alt="Casey Turner">
     <p class="bio-text hero-bio">Casey Turner is a Utah-based cinematic motorcycle filmmaker and video editing educator. Under the cinemoto999 brand, Casey produces high-production motorcycle films and teaches creators how to achieve a cinematic look using DaVinci Resolve — from color grading and custom LUT packs to transitions and full editing workflows.</p>
     <div class="hero-cta">
       <a class="hero-email" href="mailto:turnervizualz@gmail.com">
@@ -606,6 +622,9 @@
   </div>
 
   <!-- Stats -->
+  <div class="parallax-bg">
+  <div class="parallax-inner">
+
   <div class="stats reveal">
     <div class="stat">
       <div class="stat-platform">Instagram</div>
@@ -627,11 +646,6 @@
       <div class="stat-number"><!-- TT_ENG -->5.8%</div>
       <div class="stat-label">Engagement Rate</div>
     </div>
-  </div>
-
-  <!-- Stills -->
-  <div class="stills reveal">
-    <img class="still-img" src="still-garage.jpg" alt="Motorcycle in studio" loading="lazy">
   </div>
 
   <!-- Analytics -->
@@ -672,6 +686,9 @@
       </div>
     </div>
   </section>
+
+  </div><!-- /.parallax-inner -->
+  </div><!-- /.parallax-bg -->
 
 <!-- Featured Collabs -->
   <section id="collabs">
@@ -843,10 +860,23 @@
 
 </div>
 <script>
+  const heroVideo = document.querySelector('.hero-video');
+  if (heroVideo) heroVideo.play().catch(() => {});
+
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 40);
   });
+
+  const parallaxEl = document.querySelector('.parallax-bg');
+  function updateParallax() {
+    if (!parallaxEl) return;
+    const rect = parallaxEl.getBoundingClientRect();
+    const offset = rect.top * 0.35;
+    parallaxEl.style.backgroundPositionY = `calc(50% - ${offset}px)`;
+  }
+  window.addEventListener('scroll', updateParallax, { passive: true });
+  updateParallax();
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(el => {

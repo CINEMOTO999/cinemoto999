@@ -861,7 +861,16 @@
 </div>
 <script>
   const heroVideo = document.querySelector('.hero-video');
-  if (heroVideo) heroVideo.play().catch(() => {});
+  if (heroVideo) {
+    heroVideo.muted = true;
+    const tryPlay = () => heroVideo.play().catch(() => {});
+    if (heroVideo.readyState >= 2) {
+      tryPlay();
+    } else {
+      heroVideo.addEventListener('canplay', tryPlay, { once: true });
+    }
+    document.addEventListener('touchstart', tryPlay, { once: true, passive: true });
+  }
 
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {

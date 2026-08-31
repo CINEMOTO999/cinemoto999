@@ -519,6 +519,29 @@
     .nav-links { display: none; }
   }
 
+  /* ── Photo stills ── */
+  .stills {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 2px;
+    height: 460px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 24px 0;
+  }
+  .still-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+  @media (max-width: 600px) {
+    .stills { grid-template-columns: 1fr; height: auto; }
+    .stills .still-img { height: 260px; }
+    .stills .still-img:last-child { height: 340px; }
+  }
+
   /* ── Fade in on scroll ── */
   .reveal {
     opacity: 0;
@@ -591,6 +614,12 @@
       <div class="stat-number"><!-- TT_ENG -->5.8%</div>
       <div class="stat-label">Engagement Rate</div>
     </div>
+  </div>
+
+  <!-- Stills -->
+  <div class="stills reveal">
+    <img class="still-img" src="still-garage.jpg" alt="Motorcycle in studio" loading="lazy">
+    <img class="still-img" src="still-helmet.jpg" alt="Casey Turner" loading="lazy" style="object-position: top center;">
   </div>
 
   <!-- Analytics -->

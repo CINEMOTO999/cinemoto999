@@ -2,6 +2,7 @@ ig_page_token.txt
 ig_account_id.txt
 stats_cache.json
 update_stats.py
+windsor_api_key.txt
 *.py
 *.json
 *.txt

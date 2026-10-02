@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>cinemoto999 — Analytics</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="https://fonts.cdnfonts.com/css/alte-haas-grotesk">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #080808;
+    --surface: #111111;
+    --border: #1e1e1e;
+    --text: #e8e8e8;
+    --muted: #666;
+    --accent: #ffffff;
+    --tag-bg: #1a1a1a;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Alte Haas Grotesk', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page { max-width: 860px; margin: 0 auto; padding: 60px 24px 80px; }
+
+  .header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+  .header-brand {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+  }
+  .header-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .updated {
+    font-size: 11px;
+    color: #333;
+    letter-spacing: 0.04em;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  section { padding: 40px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+
+  /* ── Follower row ── */
+  .followers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(30,30,30,0.4);
+    border: 1px solid rgba(30,30,30,0.4);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .follower-card {
+    background: rgba(17,17,17,0.55);
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .follower-number {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .follower-platform {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2px;
+  }
+  .follower-label {
+    font-size: 12px;
+    color: #444;
+  }
+
+  /* ── Stat grid ── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(30,30,30,0.4);
+    border: 1px solid rgba(30,30,30,0.4);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .stat-card {
+    background: rgba(17,17,17,0.55);
+    padding: 24px 20px;
+    text-align: center;
+  }
+  .stat-number {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+  .stat-card.highlight .stat-number { color: #c8f0a0; }
+
+  /* ── 2-col grid ── */
+  .stat-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(30,30,30,0.4);
+    border: 1px solid rgba(30,30,30,0.4);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .page { padding: 40px 16px 60px; }
+    .followers-grid { grid-template-columns: repeat(3, 1fr); }
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .follower-number { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div>
+      <div class="header-brand">cinemoto999</div>
+      <div class="header-label">Analytics Dashboard</div>
+    </div>
+    <div class="updated">Updated <!-- UPDATED -->October 02, 2026<!-- /UPDATED --></div>
+  </div>
+
+  <!-- Audience -->
+  <section>
+    <p class="section-label">Audience</p>
+    <div class="followers-grid">
+      <div class="follower-card">
+        <div class="follower-platform">Instagram</div>
+        <div class="follower-number"><!-- IG_FOLLOWERS -->44.4K</div>
+        <div class="follower-label">Followers</div>
+      </div>
+      <div class="follower-card">
+        <div class="follower-platform">TikTok</div>
+        <div class="follower-number"><!-- TT_FOLLOWERS -->48.7K</div>
+        <div class="follower-label">Followers</div>
+      </div>
+      <div class="follower-card">
+        <div class="follower-platform">YouTube</div>
+        <div class="follower-number"><!-- YT_SUBS -->1K</div>
+        <div class="follower-label">Subscribers</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram 30-day -->
+  <section>
+    <p class="section-label">Instagram — Last 30 Days</p>
+    <div class="stat-grid">
+      <div class="stat-card highlight">
+        <div class="stat-number"><!-- IG_ENG -->14.6%</div>
+        <div class="stat-label">Engagement Rate</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number"><!-- IG_VIEWS -->2.0M</div>
+        <div class="stat-label">Views</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number"><!-- IG_REACH -->979.7K</div>
+        <div class="stat-label">Reach</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number"><!-- IG_ENGAGED -->136.2K</div>
+        <div class="stat-label">Accts Engaged</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number"><!-- IG_INTERACTIONS -->222.5K</div>
+        <div class="stat-label">Interactions</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number"><!-- IG_SAVES -->32.7K</div>
+        <div class="stat-label">Saves</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number"><!-- IG_PROFILE_VISITS -->14.5K</div>
+        <div class="stat-label">Profile Visits</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number"><!-- IG_AVG_VIEWS -->90.2K</div>
+        <div class="stat-label">Avg Views / Post</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram per-post -->
+  <section>
+    <p class="section-label">Instagram — Per Post Avg (Last 12 Posts)</p>
+    <div class="stat-grid-2">
+      <div class="stat-card">
+        <div class="stat-number"><!-- IG_AVG_REACH -->69.0K</div>
+        <div class="stat-label">Avg Reach</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number"><!-- IG_AVG_VIEWS -->90.2K</div>
+        <div class="stat-label">Avg Views</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TikTok -->
+  <section>
+    <p class="section-label">TikTok — Last 30 Days</p>
+    <div class="stat-grid">
+      <div class="stat-card highlight">
+        <div class="stat-number"><!-- TT_ENG -->0.0%</div>
+        <div class="stat-label">Engagement Rate</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number"><!-- TT_VIEWS -->0</div>
+        <div class="stat-label">Video Views</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number"><!-- TT_LIKES -->0</div>
+        <div class="stat-label">Likes</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number"><!-- TT_SHARES -->0</div>
+        <div class="stat-label">Shares</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

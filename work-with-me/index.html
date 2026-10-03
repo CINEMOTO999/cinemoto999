@@ -343,15 +343,32 @@
   .footer-links a { font-size: 12px; color: #444; letter-spacing: 0.04em; }
   .footer-links a:hover { color: #888; }
 
+  /* ── Hero avatar ── */
+  .hero-avatar {
+    width: 280px;
+    height: 280px;
+    border-radius: 12px;
+    object-fit: cover;
+    object-position: center 34%;
+    display: block;
+    margin-bottom: 28px;
+  }
+
   /* ── Responsive ── */
   @media (max-width: 600px) {
     .page { padding: 0 16px 60px; }
     .hero { height: 50vh; min-height: 320px; }
     .hero-inner { padding: 0 20px 28px; }
+    .page-intro { padding: 32px 0 0; }
+    .hero-avatar { width: 100%; height: 240px; margin-bottom: 20px; }
     .stats-strip { grid-template-columns: repeat(2, 1fr); }
+    section { padding: 36px 0; }
+    .deliverable { flex-direction: column; align-items: flex-start; gap: 8px; }
     .contact-block { padding: 28px 20px; }
     .contact-actions { flex-wrap: wrap; max-width: 100%; }
     .contact-email-link { flex: 1; min-width: 0; }
+    .contact-email-label { display: none; }
+    .contact-email-addr { font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .nav { padding: 16px 20px; }
   }
 
@@ -373,20 +390,20 @@
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-inner">
-    <h1 class="hero-name">Work With Me</h1>
-    <p class="hero-handle">@cinemoto999 &nbsp;·&nbsp; Brand Partnerships</p>
+    <h1 class="hero-name">Casey Turner</h1>
+    <p class="hero-handle">@cinemoto999 &nbsp;·&nbsp; Work With Me</p>
   </div>
 </header>
 
 <div class="page">
 
   <div class="page-intro reveal">
-    <p class="intro-heading">Let's make something people actually watch.</p>
-    <p class="intro-body">I create cinematic motorcycle content that earns real engagement — not just impressions. If your brand belongs in that world, I'd love to build something together.</p>
+    <img class="hero-avatar" src="../still-helmet.jpg" alt="Casey Turner">
+    <p class="intro-body">Casey Turner is a Utah-based cinematic motorcycle filmmaker and video editing educator. Under the cinemoto999 brand, Casey produces high-production motorcycle films and teaches creators how to achieve a cinematic look using DaVinci Resolve — from color grading and custom LUT packs to transitions and full editing workflows.</p>
 
     <div class="stats-strip">
       <div class="strip-stat">
-        <div class="strip-number"><!-- IG_FOLLOWERS -->44.4K</div>
+        <div class="strip-number"><!-- IG_FOLLOWERS -->44.5K</div>
         <div class="strip-label">IG Followers</div>
       </div>
       <div class="strip-stat">
@@ -394,11 +411,11 @@
         <div class="strip-label">TT Followers</div>
       </div>
       <div class="strip-stat">
-        <div class="strip-number"><!-- IG_ENG -->14.6%</div>
+        <div class="strip-number"><!-- IG_ENG -->16.4%</div>
         <div class="strip-label">IG Eng. Rate</div>
       </div>
       <div class="strip-stat">
-        <div class="strip-number"><!-- IG_VIEWS -->2.0M</div>
+        <div class="strip-number"><!-- IG_VIEWS -->2.1M</div>
         <div class="strip-label">IG Views / 30d</div>
       </div>
     </div>

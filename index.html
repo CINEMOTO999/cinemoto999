@@ -79,9 +79,21 @@
     text-shadow: 0 2px 24px rgba(0,0,0,0.6);
     margin: 0 0 6px;
   }
-  /* ── Page intro (handle + bio + CTA below video) ── */
+  /* ── Page intro ── */
   .page-intro {
     padding: 48px 0 8px;
+  }
+  .intro-row {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+  }
+  .intro-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 8px;
   }
   .hero-handle {
     font-size: 12px;
@@ -92,20 +104,20 @@
     margin: 0;
   }
   .hero-avatar {
-    width: 320px;
-    height: 320px;
+    width: 280px;
+    height: 280px;
     border-radius: 12px;
     object-fit: cover;
     object-position: center 34%;
-    display: block;
-    margin-bottom: 48px;
+    flex-shrink: 0;
   }
   .hero-bio {
     font-size: 15px;
     color: rgba(255,255,255,0.65);
-    max-width: 600px;
     line-height: 1.75;
-    margin: 0 0 24px;
+    margin: 0 0 28px;
+    text-align: left;
+    width: 100%;
   }
   .hero-cta {
     display: inline-flex;
@@ -480,7 +492,10 @@
     .hero { height: 70vh; min-height: 400px; }
     .hero-inner { padding: 0 20px 32px; }
     .hero-name { font-size: clamp(32px, 10vw, 52px); }
-    .hero-bio { font-size: 14px; }
+    .intro-row { flex-direction: column; }
+    .intro-right { width: 100%; }
+    .hero-avatar { width: 100%; height: 260px; }
+    .hero-bio { text-align: left; font-size: 14px; }
     .hero-cta { flex-wrap: wrap; width: 100%; }
     .hero-email { flex: 1; min-width: 0; }
     .hero-email-addr { font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -598,7 +613,7 @@
   <div class="hero-overlay"></div>
   <div class="hero-inner">
     <h1 class="hero-name">Casey Turner</h1>
-    <p class="hero-handle">@cinemoto999 &nbsp;·&nbsp; Media Kit 2026</p>
+    <p class="hero-handle">@cinemoto999 &nbsp;·&nbsp; Media Kit</p>
   </div>
 </header>
 
@@ -606,8 +621,10 @@
 
   <!-- Intro -->
   <div class="page-intro reveal">
-    <img class="hero-avatar" src="still-helmet.jpg" alt="Casey Turner">
-    <p class="bio-text hero-bio">Casey Turner is a Utah-based cinematic motorcycle filmmaker and video editing educator. Under the cinemoto999 brand, Casey produces high-production motorcycle films and teaches creators how to achieve a cinematic look using DaVinci Resolve — from color grading and custom LUT packs to transitions and full editing workflows.</p>
+    <div class="intro-row">
+      <img class="hero-avatar" src="still-helmet.jpg" alt="Casey Turner">
+      <div class="intro-right">
+        <p class="bio-text hero-bio">Casey Turner is a Utah-based cinematic motorcycle filmmaker and video editing educator. Under the cinemoto999 brand, Casey produces high-production motorcycle films and teaches creators how to achieve a cinematic look using DaVinci Resolve, covering color grading, custom LUT packs, transitions, and full editing workflows.</p>
     <div class="hero-cta">
       <a class="hero-email" href="mailto:turnervizualz@gmail.com">
         <span class="hero-email-label">Work with me &rarr;</span>
@@ -619,6 +636,8 @@
         </svg>
       </button>
     </div>
+      </div>
+    </div>
   </div>
 
   <!-- Stats -->
@@ -628,7 +647,7 @@
   <div class="stats reveal">
     <div class="stat">
       <div class="stat-platform">Instagram</div>
-      <div class="stat-number"><!-- IG_FOLLOWERS -->44.4K</div>
+      <div class="stat-number"><!-- IG_FOLLOWERS -->44.5K</div>
       <div class="stat-label">Followers</div>
     </div>
     <div class="stat">
@@ -638,7 +657,7 @@
     </div>
     <div class="stat">
       <div class="stat-platform">Instagram</div>
-      <div class="stat-number"><!-- IG_ENG -->14.6%</div>
+      <div class="stat-number"><!-- IG_ENG -->16.4%</div>
       <div class="stat-label">Engagement Rate</div>
     </div>
     <div class="stat">
@@ -653,7 +672,7 @@
     <p class="section-label reveal">Analytics — Last 30 Days</p>
     <div class="analytics-grid reveal">
       <div class="analytics-card">
-        <div class="analytics-number"><!-- IG_VIEWS -->2.0M</div>
+        <div class="analytics-number"><!-- IG_VIEWS -->2.1M</div>
         <div class="analytics-label">Instagram Views</div>
       </div>
       <div class="analytics-card">
@@ -661,27 +680,27 @@
         <div class="analytics-label">TikTok Views</div>
       </div>
       <div class="analytics-card">
-        <div class="analytics-number"><!-- IG_REACH -->979.7K</div>
+        <div class="analytics-number"><!-- IG_REACH -->1.0M</div>
         <div class="analytics-label">Accounts Reached</div>
       </div>
       <div class="analytics-card">
-        <div class="analytics-number"><!-- IG_ENGAGED -->136.2K</div>
+        <div class="analytics-number"><!-- IG_ENGAGED -->140.2K</div>
         <div class="analytics-label">Accounts Engaged</div>
       </div>
       <div class="analytics-card">
-        <div class="analytics-number"><!-- IG_INTERACTIONS -->222.5K</div>
+        <div class="analytics-number"><!-- IG_INTERACTIONS -->231.5K</div>
         <div class="analytics-label">Interactions</div>
       </div>
       <div class="analytics-card">
-        <div class="analytics-number"><!-- IG_SAVES -->32.7K</div>
+        <div class="analytics-number"><!-- IG_SAVES -->33.7K</div>
         <div class="analytics-label">Saves</div>
       </div>
       <div class="analytics-card">
-        <div class="analytics-number"><!-- TT_LIKES -->0</div>
-        <div class="analytics-label">TikTok Likes</div>
+        <div class="analytics-number"><!-- IG_INTERACTIONS -->231.5K</div>
+        <div class="analytics-label">Instagram Likes</div>
       </div>
       <div class="analytics-card">
-        <div class="analytics-number"><!-- IG_AVG_VIEWS -->90.2K</div>
+        <div class="analytics-number"><!-- IG_AVG_VIEWS -->64.8K</div>
         <div class="analytics-label">Avg Views / Reel</div>
       </div>
     </div>
